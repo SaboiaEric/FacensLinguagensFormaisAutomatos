@@ -1,25 +1,20 @@
 import re
-#inicialLetra = 'S' 
-alfabeto = ['a','b']
-#conversoes = ['S','AA','-','A','aB','Ba','-','B','Bb','b']
 
-def pertenceLinguagem(palavra):
-  print("\nChecking if word there is in language")
-  for char in palavra:
-    if(char not in alfabeto): return False
+alphabet = ['a','b']
 
-  if(not verificaGramatica(palavra)): return False
-    
-  return True
-    
-def verificaGramatica(palavra):
-  answer = re.search(r'^b*((ab+){2})$', palavra)
+def CheckingLanguage(word):
+  print("\nChecking if the word there is on language")
+  for char in word:
+    if(char not in alphabet): return False
+
+  #Checking the grammar
+  answer = re.search(r'^b*((ab+){2})$', word)
   if answer: return True
-  
-  return False
 
+  return False
+    
 
 word = input('Go!! Write the word: ')
-resultado = pertenceLinguagem(word)
-if resultado: print('Pertence')
-else: print('Nao Pertence')
+result = CheckingLanguage(word)
+if result: print('Yes')
+else: print('No')
